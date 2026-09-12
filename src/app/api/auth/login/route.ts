@@ -3,16 +3,35 @@ import { cookies } from 'next/headers';
 
 export async function POST(req: Request) {
   try {
-    const { email, password } = await req.json();
+    const body = await req.json();
+    const inputUser = String(body.username || body.email || body.identifier || '').trim().toLowerCase();
+    const inputPassword = String(body.password || '');
 
-    // Environment variables with fallback
-    const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@aspirerealty.com';
-    const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin123';
+    if (!inputUser || !inputPassword) {
+      return NextResponse.json(
+        { success: false, message: 'Username/Email and Password are required' },
+        { status: 400 }
+      );
+    }
 
-    // Validate credentials
-    if (email.trim().toLowerCase() === ADMIN_EMAIL.trim().toLowerCase() && password === ADMIN_PASSWORD) {
+    // Get allowed admin credentials from Environment Variables
+    const allowedUsernames = [
+      process.env.ADMIN_USERNAME,
+      process.env.ADMIN_EMAIL,
+      process.env.ADMIN_USER,
+    ]
+      .filter(Boolean)
+      .map((u) => String(u).trim().toLowerCase());
+
+    const expectedPassword = process.env.ADMIN_PASSWORD;
+
+    // Validate against environment variables
+    const isUserValid = allowedUsernames.length > 0 && allowedUsernames.includes(inputUser);
+    const isPasswordValid = Boolean(expectedPassword && inputPassword === expectedPassword);
+
+    if (isUserValid && isPasswordValid) {
       // Create auth token
-      const token = Buffer.from(`${email}:${Date.now()}`).toString('base64');
+      const token = Buffer.from(`${inputUser}:${Date.now()}`).toString('base64');
 
       // Set secure cookie
       const cookieStore = await cookies();
@@ -30,7 +49,7 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json(
-      { success: false, message: 'Invalid email or password' },
+      { success: false, message: 'Invalid username/email or password' },
       { status: 401 }
     );
   } catch (error) {
