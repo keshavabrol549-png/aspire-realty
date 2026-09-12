@@ -7,7 +7,7 @@ const DEFAULT_REELS = {
       vertical: 'india',
       title: 'Aspire Homes Luxury Property Walkthrough',
       videoUrl: 'https://www.instagram.com/reel/DbirxkjvUGM/',
-      instagramUrl: 'https://www.instagram.com/aspirerealtyglobal/',
+      instagramUrl: 'https://www.instagram.com/aspire_homes_properties?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==',
       thumbnail: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=600&auto=format&fit=crop',
       views: '54.2K views',
       tag: 'Featured',
@@ -17,7 +17,7 @@ const DEFAULT_REELS = {
       vertical: 'india',
       title: 'Premium Residential & Commercial Investment Options',
       videoUrl: 'https://www.instagram.com/reel/DdEv9I6PTB2/',
-      instagramUrl: 'https://www.instagram.com/aspirerealtyglobal/',
+      instagramUrl: 'https://www.instagram.com/aspire_homes_properties?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==',
       thumbnail: 'https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=600&auto=format&fit=crop',
       views: '48.6K views',
       tag: 'Featured',
@@ -27,7 +27,7 @@ const DEFAULT_REELS = {
       vertical: 'india',
       title: 'Exclusive Jammu Real Estate Opportunities',
       videoUrl: 'https://www.instagram.com/reel/DYG0L68PGIs/',
-      instagramUrl: 'https://www.instagram.com/aspirerealtyglobal/',
+      instagramUrl: 'https://www.instagram.com/aspire_homes_properties?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==',
       thumbnail: 'https://images.unsplash.com/photo-1599809275671-b3ed8947f3b5?q=80&w=600&auto=format&fit=crop',
       views: '62.1K views',
       tag: 'Featured',
@@ -37,7 +37,7 @@ const DEFAULT_REELS = {
       vertical: 'india',
       title: 'Modern Architecture & Interiors Showcasing',
       videoUrl: 'https://www.instagram.com/reel/DV6eF54j-FV/',
-      instagramUrl: 'https://www.instagram.com/aspirerealtyglobal/',
+      instagramUrl: 'https://www.instagram.com/aspire_homes_properties?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==',
       thumbnail: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=600&auto=format&fit=crop',
       views: '71.4K views',
       tag: 'Featured',
@@ -47,7 +47,7 @@ const DEFAULT_REELS = {
       vertical: 'india',
       title: 'Prime Location Villa & Plot Tour',
       videoUrl: 'https://www.instagram.com/reel/DVDGilOj4JY/',
-      instagramUrl: 'https://www.instagram.com/aspirerealtyglobal/',
+      instagramUrl: 'https://www.instagram.com/aspire_homes_properties?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==',
       thumbnail: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=600&auto=format&fit=crop',
       views: '83.9K views',
       tag: 'Featured',
@@ -137,12 +137,17 @@ export async function POST(req: Request) {
     const prisma = new PrismaClient();
     const body = await req.json();
 
+    const vertical = body.vertical || 'india';
+    const fallbackInsta = vertical === 'india'
+      ? 'https://www.instagram.com/aspire_homes_properties?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=='
+      : 'https://www.instagram.com/aspirerealtyglobal/';
+
     const reel = await prisma.reel.create({
       data: {
         title: body.title,
-        vertical: body.vertical || 'india',
+        vertical: vertical,
         videoUrl: body.videoUrl,
-        instagramUrl: body.instagramUrl || 'https://www.instagram.com/aspirerealtyglobal/',
+        instagramUrl: body.instagramUrl || fallbackInsta,
         thumbnail: body.thumbnail || null,
         tag: 'Featured',
       }

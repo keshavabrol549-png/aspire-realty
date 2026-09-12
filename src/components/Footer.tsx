@@ -7,7 +7,9 @@ export default function Footer() {
   const pathname = usePathname();
   const isGlobal = pathname.startsWith('/global');
 
-  const instagramLink = 'https://www.instagram.com/aspirerealtyglobal/';
+  const instagramLink = isGlobal
+    ? 'https://www.instagram.com/aspirerealtyglobal/'
+    : 'https://www.instagram.com/aspire_homes_properties?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==';
 
   return (
     <footer className="w-full bg-[#101A2C] border-t-4 border-[#101A2C] text-[#F7F5EF] relative overflow-hidden">
@@ -149,7 +151,7 @@ export default function Footer() {
                 className="hover:text-[#E1306C] transition-colors inline-flex items-center gap-1.5 font-bold px-3 py-1 bg-white/5 border border-white/10 rounded-md hover:bg-white/10"
               >
                 <Instagram className="w-4 h-4 text-[#E1306C]" />
-                <span>Instagram {isGlobal ? 'Global' : '(50k+)'}</span>
+                <span>Instagram {isGlobal ? 'Global' : 'India'}</span>
               </a>
               <a
                 href="https://www.facebook.com/profile.php?id=61570149943880&ref=PROFILE_EDIT_xav_ig_profile_page_web#"

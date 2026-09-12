@@ -245,18 +245,18 @@ export default function IndiaHome() {
                 Watch Property Reels & Walkthroughs
               </h2>
               <p className="font-sans font-semibold text-gray-700 mt-2 text-base md:text-lg">
-                Follow <span className="text-[#E1306C] font-extrabold">@aspirerealtyglobal</span> for daily verified property tours, drone footage, and market updates in Jammu.
+                Follow <span className="text-[#E1306C] font-extrabold">@aspire_homes_properties</span> for daily verified property tours, drone footage, and market updates in Jammu.
               </p>
             </div>
 
             <a
-              href="https://www.instagram.com/aspirerealtyglobal/"
+              href="https://www.instagram.com/aspire_homes_properties?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-6 py-4 bg-[#E1306C] text-white font-heading font-extrabold text-base border-3 border-[#101A2C] shadow-[4px_4px_0px_0px_#101A2C] hover:translate-x-1 hover:translate-y-1 hover:shadow-[2px_2px_0px_0px_#101A2C] transition-all flex-shrink-0"
             >
               <Instagram className="w-5 h-5" />
-              <span>Visit @aspirerealtyglobal</span>
+              <span>Visit @aspire_homes_properties</span>
               <ExternalLink className="w-4 h-4 ml-1" />
             </a>
           </div>
