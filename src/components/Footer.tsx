@@ -102,7 +102,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#25D366] text-white border-2 border-white shadow-[2px_2px_0px_0px_#fff] hover:translate-x-0.5 hover:translate-y-0.5 transition-transform"
                 >
-                  <span className="text-xs font-extrabold">WhatsApp Concierge</span>
+                  <span className="text-xs font-extrabold">WhatsApp Agent</span>
                 </a>
               </li>
               <li>
