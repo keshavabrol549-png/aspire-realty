@@ -18,10 +18,29 @@ export default function Header() {
 
   return (
     <header className="w-full bg-[#F7F5EF] border-b-4 border-[#101A2C] sticky top-0 z-50">
-      {/* Tagline Ticker Bar */}
-      <div className="bg-[#101A2C] text-[#F7F5EF] py-2.5 px-4 text-center font-heading text-xs md:text-sm font-bold tracking-wider uppercase border-b-2 border-[#101A2C] overflow-x-auto whitespace-nowrap">
-        <div className="inline-block text-[#F7F5EF]">
-          <span className="text-[#C99A3E]">✨</span> Building Trust. Creating Dreams. <span className="text-[#C99A3E]">✨</span> &nbsp;&nbsp;|&nbsp;&nbsp; Premium Real Estate Advisory &nbsp;&nbsp;|&nbsp;&nbsp; Jammu & Global Destinations
+      {/* Tagline Banner Bar - Optimized for Mobile & Desktop */}
+      <div className="bg-[#101A2C] text-[#F7F5EF] py-2 px-3 sm:px-4 text-center font-heading text-[11px] sm:text-xs md:text-sm font-bold tracking-wider uppercase border-b-2 border-[#101A2C] overflow-hidden">
+        {/* Mobile View: Symmetrical Multi-Line Layout (No horizontal swiping needed) */}
+        <div className="flex sm:hidden flex-col items-center justify-center gap-0.5 py-0.5 text-center leading-snug">
+          <div className="flex items-center gap-1.5 text-[#F7F5EF]">
+            <span className="text-[#C99A3E]">✨</span>
+            <span>Building Trust. Creating Dreams.</span>
+            <span className="text-[#C99A3E]">✨</span>
+          </div>
+          <div className="flex items-center gap-2 text-[10px] text-gray-300 font-semibold">
+            <span>Premium Real Estate Advisory</span>
+            <span className="text-[#C99A3E] font-normal">•</span>
+            <span>Jammu & Global</span>
+          </div>
+        </div>
+
+        {/* Desktop View: Widescreen Single Line */}
+        <div className="hidden sm:block text-[#F7F5EF] whitespace-nowrap">
+          <span className="text-[#C99A3E]">✨</span> Building Trust. Creating Dreams. <span className="text-[#C99A3E]">✨</span>
+          <span className="mx-3 text-[#C99A3E] font-normal">|</span>
+          <span>Premium Real Estate Advisory</span>
+          <span className="mx-3 text-[#C99A3E] font-normal">|</span>
+          <span className="text-gray-300">Jammu & Global Destinations</span>
         </div>
       </div>
 
