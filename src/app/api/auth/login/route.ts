@@ -1,17 +1,17 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 
-// Demo credentials - in production, validate against database
-const ADMIN_EMAIL = 'admin@aspirerealty.com';
-const ADMIN_PASSWORD = 'admin123';
-
 export async function POST(req: Request) {
   try {
     const { email, password } = await req.json();
 
+    // Environment variables with fallback
+    const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@aspirerealty.com';
+    const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin123';
+
     // Validate credentials
-    if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
-      // Create a simple auth token (in production, use JWT)
+    if (email.trim().toLowerCase() === ADMIN_EMAIL.trim().toLowerCase() && password === ADMIN_PASSWORD) {
+      // Create auth token
       const token = Buffer.from(`${email}:${Date.now()}`).toString('base64');
 
       // Set secure cookie
@@ -30,7 +30,7 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json(
-      { success: false, message: 'Invalid credentials' },
+      { success: false, message: 'Invalid email or password' },
       { status: 401 }
     );
   } catch (error) {
