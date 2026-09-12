@@ -124,35 +124,40 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="border-t-2 border-gray-700 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 font-semibold text-xs text-gray-400">
+        {/* Bottom Symmetrical Section */}
+        <div className="border-t-2 border-gray-700 pt-6 flex flex-col md:flex-row items-center justify-between gap-6 font-semibold text-xs text-gray-400 text-center md:text-left">
           <p>
             &copy; {new Date().getFullYear()} ASPIRE Homes and Properties. All rights reserved.
           </p>
-          <div className="flex flex-wrap gap-4 items-center">
-            <a href="/about" className="hover:text-white transition-colors">
-              Privacy Policy
-            </a>
-            <a href="/faq" className="hover:text-white transition-colors">
-              Terms & Legal Advisory
-            </a>
-            <div className="flex items-center gap-3 border-l-2 border-gray-600 pl-4">
+
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+            <div className="flex items-center gap-4">
+              <a href="/about" className="hover:text-white transition-colors">
+                Privacy Policy
+              </a>
+              <span className="text-gray-600">•</span>
+              <a href="/faq" className="hover:text-white transition-colors">
+                Terms & Legal
+              </a>
+            </div>
+
+            <div className="flex items-center justify-center gap-3 sm:border-l-2 sm:border-gray-700 sm:pl-6 pt-2 sm:pt-0">
               <a
                 href={instagramLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#E1306C] transition-colors flex items-center gap-1.5 font-bold"
+                className="hover:text-[#E1306C] transition-colors inline-flex items-center gap-1.5 font-bold px-3 py-1 bg-white/5 border border-white/10 rounded-md hover:bg-white/10"
               >
-                <Instagram className="w-4 h-4" />
+                <Instagram className="w-4 h-4 text-[#E1306C]" />
                 <span>Instagram {isGlobal ? 'Global' : '(50k+)'}</span>
               </a>
               <a
                 href="https://www.facebook.com/profile.php?id=61570149943880&ref=PROFILE_EDIT_xav_ig_profile_page_web#"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#C99A3E] transition-colors flex items-center gap-1.5"
+                className="hover:text-[#1877F2] transition-colors inline-flex items-center gap-1.5 font-bold px-3 py-1 bg-white/5 border border-white/10 rounded-md hover:bg-white/10"
               >
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <svg className="w-4 h-4 text-[#1877F2]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
                 </svg>
                 <span>Facebook</span>
