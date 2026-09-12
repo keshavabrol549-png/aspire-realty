@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #F7F5EF;
+  color: #101A2C;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography — Plus Jakarta Sans for headings */
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+strong, b, .font-bold {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+}
+
+.font-accent {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+}
+
+/* Neubrutalist Shadows and Borders */
+.brutalist-card {
+  background: #ffffff;
+  border: 3px solid #101A2C;
+  box-shadow: 4px 4px 0px 0px #101A2C;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.brutalist-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #101A2C;
+}
+
+.brutalist-button {
+  border: 3px solid #101A2C;
+  box-shadow: 4px 4px 0px 0px #101A2C;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  transition: all 0.1s ease;
+  cursor: pointer;
+}
+
+.brutalist-button:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0px 0px #101A2C;
+}
+
+.brutalist-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px #101A2C;
+}
+
+/* Input Fields */
+input, textarea, select {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
+  padding: 0.875rem 1rem;
+  border: 3px solid #101A2C;
+  border-radius: 0px;
+  background: #ffffff;
+  box-shadow: 3px 3px 0px 0px #101A2C;
+  transition: all 0.1s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0px 0px #101A2C;
+}
+
+/* Utility Classes */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.divider-line {
+  height: 3px;
+  background: #101A2C;
+  margin: 2rem 0;
+}
+
+
+/* Subtle Decorative Elements */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, #101A2C 1px, transparent 1px),
+    linear-gradient(to bottom, #101A2C 1px, transparent 1px);
+  background-size: 60px 60px;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-dot-pattern {
+  background-image: radial-gradient(#101A2C 2.5px, transparent 2.5px);
+  background-size: 32px 32px;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.decorative-star {
+  position: absolute;
+  font-size: 8rem;
+  font-weight: 800;
+  color: #101A2C;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+}
